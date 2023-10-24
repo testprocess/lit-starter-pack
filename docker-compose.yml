@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+
+  main:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 9030:9030
+    environment:
+      DB_CLIENT: mysql
+      DB_HOST: 172.17.0.1
+      DB_USER: root
+      DB_PASS: ${MYSQL_ROOT_PASSWORD}
+      DB_PORT: 13310
+      JWT_SECRET: ${MAIN_JWT_SECRET}
+      NODE_ENV: production
+      VIRTUAL_HOST: board.devent.kr
+      LETSENCRYPT_HOST: board.devent.kr
+      LETSENCRYPT_EMAIL: hhj@devent.kr
+    network_mode: "bridge"
+
+
+  db:
+    image: mysql:8.0
+    ports:
+      - 13310:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - .docker/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    network_mode: "bridge"
