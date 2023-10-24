@@ -6,21 +6,21 @@ const __dirname = path.dirname(__filename);
 
 export default 
 {
-    "entry":["./client/src/index.tsx"],
+    "entry":["./client/src/index.ts"],
     "watch": false,
-    "module": {
-        "rules": [
-            {
-                "test": /\.tsx?$/,
-                "use": 'ts-loader',
-                "exclude": /node_modules/,
-            },
-            {
-                "test": /\.css$/,
-                "use": ['style-loader', 'css-loader']
-            }
-        ],
-    },
+    // "module": {
+    //     "rules": [
+    //         {
+    //             "test": /\.tsx?$/,
+    //             "use": 'ts-loader',
+    //             "exclude": /node_modules/,
+    //         },
+    //         {
+    //             "test": /\.css$/,
+    //             "use": ['style-loader', 'css-loader']
+    //         }
+    //     ],
+    // },
     "resolve": {
         "extensions": [".ts", ".tsx", ".js", ".jsx"],
     },
