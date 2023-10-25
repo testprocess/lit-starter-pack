@@ -6,7 +6,7 @@ const __dirname = path.dirname(__filename);
 
 export default 
 {
-    "entry":["./client/src/index.ts"],
+    "entry":["./src/index.ts"],
     "watch": false,
     "module": {
         "rules": [
@@ -22,7 +22,7 @@ export default
     },
     "output": {
         "filename": "index.js",
-        "path": path.resolve(__dirname, 'client/dist'),
+        "path": path.resolve(__dirname, 'dist'),
         "library": "main"
     }
 }

@@ -5,7 +5,7 @@ import helmet from "helmet"
 import { engine } from 'express-handlebars';
 
 
-import mainRouter from '../client/routes/main.js';
+import mainRouter from '../routes/main.js';
 
 export async function init (app) {
     app.engine("hbs",
@@ -16,7 +16,7 @@ export async function init (app) {
     );
     app.set('trust proxy', 1);
     app.set("view engine", "hbs");    
-    app.set('views','./client/views');
+    app.set('views','./views');
     app.disable('x-powered-by');
 
     app.use(helmet({
@@ -39,7 +39,7 @@ export async function init (app) {
        })
     })
 
-    app.use('/dist', express.static('client/dist'));
+    app.use('/dist', express.static('dist'));
     app.use('/', mainRouter);
     return app;
 }
