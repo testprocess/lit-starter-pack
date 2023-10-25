@@ -4,12 +4,12 @@
         "allowJs": true,
         "moduleResolution": "node",
         "module": "es6",
-        "target": "es5",
-        "jsx": "react",
+        "target": "ES2015",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "useDefineForClassFields": false,
         "paths": {
             "react": [ "./node_modules/@types/react" ]
         }
